@@ -19,6 +19,22 @@ function calculateAge() {
 
     y3 = y2 - y1;
 
+    if (y1 > y2) {
+        result.innerHTML = `Please enter a valid date`;
+        return;
+    }
+    else if (y1 == y2) {
+        if (m1 > m2) {
+            result.innerHTML = `Please enter a valid date`;
+            return;
+        }
+        else if (m1 == m2) {
+            if (d1 > d2) {
+                result.innerHTML = `Please enter a valid date`;
+                return;
+            }
+        }
+    }
     if (m2 >= m1) {
         m3 = m2 - m1;
     }
@@ -26,6 +42,8 @@ function calculateAge() {
         y3--;
         m3 = 12 + m2 - m1;
     }
+
+
 
     if (d2 >= d1) {
         d3 = d2 - d1;
@@ -41,6 +59,8 @@ function calculateAge() {
     }
 
     result.innerHTML = `You are ${y3} years, ${m3} months and ${d3} days old`;
+
+
 }
 
 function getDaysInMonth(year, month) {
